@@ -1,13 +1,12 @@
 ﻿<%@ Page Language="vb" AutoEventWireup="true" CodeFile="Default.aspx.vb" Inherits="_Default" %>
 
-<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
-    Namespace="DevExpress.Web.ASPxGlobalEvents" TagPrefix="dx" %>
-<%@ Register Assembly="DevExpress.Web.v13.1, Version=13.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
-    Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
-<!DOCTYPE HTML>
-<html>
+<%@ Register assembly="DevExpress.Web.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>How to drag and drop items from/to ASPxListBox using jQuery UI</title>
+      <title>How to drag and drop items from/to ASPxListBox using jQuery UI</title>
     <script src="Scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
     <script src="Scripts/jquery-ui-1.8.14.min.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -17,7 +16,6 @@
                     helper: 'clone'
                 }
             );
-
             $('.listBoxLeft, .listBoxRight').droppable(
                 {
                     activeClass: "hover",
@@ -26,11 +24,8 @@
                         if ($(ui.draggable).parents(".listBoxLeft").length != 0 && ($(this)).hasClass("listBoxLeft") ||
                             $(ui.draggable).parents(".listBoxRight").length != 0 && ($(this)).hasClass("listBoxRight"))
                             return;
-
                         var itemIndex = $(ui.draggable).parent().index(); // this is a fragile part of the application
-
                         var fromListBox, toListBox;
-
                         if ($(this).hasClass("listBoxRight")) { // determine a source and a destination
                             toListBox = lbChosen;
                             fromListBox = lbAvailable;
@@ -39,12 +34,9 @@
                             toListBox = lbAvailable;
                             fromListBox = lbChosen;
                         }
-
                         toListBox.AddItem(fromListBox.GetItem(itemIndex).text,
                                           fromListBox.GetItem(itemIndex).value);
-
                         fromListBox.RemoveItem(itemIndex);
-
                         InitalizejQuery(); // repeat the initialization for new items
                     }
                 }
