@@ -5,7 +5,7 @@
 <!-- default file list end -->
 # How to drag and drop items from/to ASPxListBox using jQuery UI
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/e3417)**
+**[[Run Online]](https://codecentral.devexpress.com/e3417/)**
 <!-- run online end -->
 
 
